@@ -1,0 +1,21 @@
+--- share/jive/applets/ScreenSavers/ScreenSaversApplet.lua.old	2016-03-28 14:30:00.000000000 +0100
++++ share/jive/applets/ScreenSavers/ScreenSaversApplet.lua	2016-03-28 14:31:00.000000000 +0100
+@@ -157,14 +157,14 @@
+ 					return EVENT_CONSUME
+ 				end
+ 
+-				if event:getAction() == "power" or event:getAction() == "power_on" then
+-					Framework:playSound("SELECT")
++				-- if event:getAction() == "power" or event:getAction() == "power_on" then
++					-- Framework:playSound("SELECT")
+ 					--first power press deactivates	SS (power on already handled in deactivateSS())
+ 					-- this make consistent behavior for any type of SS that is up, power button will always deactivate SS
+ 					-- so user doesn't have to worry if "when off" SS is up or "when stopped" SS is up
+ 					-- and since when playing NP SS isn't really a SS, pwer off will work when NP "SS" engages.
+-					return EVENT_CONSUME
+-				end
++					-- return EVENT_CONSUME
++				-- end
+ 			end
+ 			return EVENT_UNUSED
+ 		end,

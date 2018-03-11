@@ -1,0 +1,344 @@
+--- share/jive/applets/CustomClock/strings.txt.old	2016-04-14 14:00:00.000000000 +0100
++++ share/jive/applets/CustomClock/strings.txt	2016-04-14 14:01:00.000000000 +0100
+@@ -64,7 +64,7 @@
+ 	IT	Domenica
+ 	NL	Zondag
+ 	NO	søndag
+-	PL	Niedziela
++	PL	niedziela
+ 	RU	Воскресенье
+ 	SV	Söndag
+ 
+@@ -79,7 +79,7 @@
+ 	IT	Lunedì
+ 	NL	Maandag
+ 	NO	Mandag
+-	PL	Poniedziałek
++	PL	poniedziałek
+ 	RU	Понедельник
+ 	SV	Måndag
+ 
+@@ -94,7 +94,7 @@
+ 	IT	Martedì
+ 	NL	Dinsdag
+ 	NO	Tirsdag
+-	PL	Wtorek
++	PL	wtorek
+ 	RU	Вторник
+ 	SV	Tisdag
+ 
+@@ -109,7 +109,7 @@
+ 	IT	Mercoledì
+ 	NL	Woensdag
+ 	NO	Onsdag
+-	PL	Środa
++	PL	środa
+ 	RU	Среда
+ 	SV	Onsdag
+ 
+@@ -124,7 +124,7 @@
+ 	IT	Giovedì
+ 	NL	Donderdag
+ 	NO	torsdag
+-	PL	Czwartek
++	PL	czwartek
+ 	RU	Четверг
+ 	SV	Torsdag
+ 
+@@ -139,7 +139,7 @@
+ 	IT	Venerdì
+ 	NL	Vrijdag
+ 	NO	Fredag
+-	PL	Piątek
++	PL	piątek
+ 	RU	Пятница
+ 	SV	Fredag
+ 
+@@ -154,7 +154,7 @@
+ 	IT	Sabato
+ 	NL	Zaterdag
+ 	NO	Lørdag
+-	PL	Sobota
++	PL	sobota
+ 	RU	Суббота
+ 	SV	Lördag
+ 
+@@ -169,7 +169,7 @@
+ 	IT	Dom
+ 	NL	Zon
+ 	NO	søn
+-	PL	Nie
++	PL	nd
+ 	RU	Вос
+ 	SV	Sön
+ 
+@@ -184,7 +184,7 @@
+ 	IT	Lun
+ 	NL	Maa
+ 	NO	Man
+-	PL	Pon
++	PL	pon
+ 	RU	Пон
+ 	SV	Mån
+ 
+@@ -199,7 +199,7 @@
+ 	IT	Mar
+ 	NL	Din
+ 	NO	Tir
+-	PL	Wto
++	PL	wt
+ 	RU	Вто
+ 	SV	Tis
+ 
+@@ -214,7 +214,7 @@
+ 	IT	Mer
+ 	NL	Woe
+ 	NO	Ons
+-	PL	Śro
++	PL	śr
+ 	RU	Сре
+ 	SV	Ons
+ 
+@@ -229,7 +229,7 @@
+ 	IT	Gio
+ 	NL	Don
+ 	NO	tor
+-	PL	Czw
++	PL	czw
+ 	RU	Чет
+ 	SV	Tor
+ 
+@@ -244,7 +244,7 @@
+ 	IT	Ven
+ 	NL	Vri
+ 	NO	Fre
+-	PL	Pią
++	PL	pt
+ 	RU	Пят
+ 	SV	Fre
+ 
+@@ -259,7 +259,7 @@
+ 	IT	Sab
+ 	NL	Zat
+ 	NO	Lør
+-	PL	Sob
++	PL	sob
+ 	RU	Суб
+ 	SV	Lör
+ 
+@@ -274,7 +274,7 @@
+ 	IT	Gennaio
+ 	NL	januari
+ 	NO	januar
+-	PL	Styczeń
++	PL	stycznia
+ 	RU	Январь
+ 	SV	januari
+ 
+@@ -289,7 +289,7 @@
+ 	IT	Febbraio
+ 	NL	februari
+ 	NO	februar
+-	PL	Luty
++	PL	lutego
+ 	RU	Февраль
+ 	SV	februari
+ 
+@@ -304,7 +304,7 @@
+ 	IT	Marzo
+ 	NL	maart
+ 	NO	mars
+-	PL	Marzec
++	PL	marca
+ 	RU	Март
+ 	SV	mars
+ 
+@@ -319,7 +319,7 @@
+ 	IT	Aprile
+ 	NL	april
+ 	NO	april
+-	PL	Kwiecień
++	PL	kwietnia
+ 	RU	Апрель
+ 	SV	april
+ 
+@@ -334,7 +334,7 @@
+ 	IT	Maggio
+ 	NL	mei
+ 	NO	mai
+-	PL	Maj
++	PL	maja
+ 	RU	Май
+ 	SV	maj
+ 
+@@ -349,7 +349,7 @@
+ 	IT	Giugno
+ 	NL	juni
+ 	NO	juni
+-	PL	Czerwiec
++	PL	czerwca
+ 	RU	Июнь
+ 	SV	juni
+ 
+@@ -364,7 +364,7 @@
+ 	IT	Luglio
+ 	NL	juli
+ 	NO	juli
+-	PL	Lipiec
++	PL	lipca
+ 	RU	Июль
+ 	SV	juli
+ 
+@@ -379,7 +379,7 @@
+ 	IT	Agosto
+ 	NL	augustus
+ 	NO	august
+-	PL	Sierpień
++	PL	sierpnia
+ 	RU	Август
+ 	SV	augusti
+ 
+@@ -394,7 +394,7 @@
+ 	IT	Settembre
+ 	NL	september
+ 	NO	september
+-	PL	Wrzesień
++	PL	września
+ 	RU	Сентябрь
+ 	SV	september
+ 
+@@ -409,7 +409,7 @@
+ 	IT	Ottobre
+ 	NL	oktober
+ 	NO	oktober
+-	PL	Październik
++	PL	października
+ 	RU	Октябрь
+ 	SV	oktober
+ 
+@@ -424,7 +424,7 @@
+ 	IT	Novembre
+ 	NL	november
+ 	NO	november
+-	PL	Listopad
++	PL	listopada
+ 	RU	Ноябрь
+ 	SV	november
+ 
+@@ -439,7 +439,7 @@
+ 	IT	Dicembre
+ 	NL	december
+ 	NO	desember
+-	PL	Grudzień
++	PL	grudnia
+ 	RU	Декабрь
+ 	SV	december
+ 
+@@ -454,7 +454,7 @@
+ 	IT	Gen
+ 	NL	jan
+ 	NO	jan
+-	PL	Sty
++	PL	sty
+ 	RU	Янв
+ 	SV	jan
+ 
+@@ -469,7 +469,7 @@
+ 	IT	Feb
+ 	NL	feb
+ 	NO	feb
+-	PL	Lut
++	PL	lut
+ 	RU	Фев
+ 	SV	feb
+ 
+@@ -484,7 +484,7 @@
+ 	IT	Mar
+ 	NL	maa
+ 	NO	mar
+-	PL	Mar
++	PL	mar
+ 	RU	Мар
+ 	SV	mar
+ 
+@@ -499,7 +499,7 @@
+ 	IT	Apr
+ 	NL	apr
+ 	NO	apr
+-	PL	Kwi
++	PL	kwi
+ 	RU	Апр
+ 	SV	apr
+ 
+@@ -514,7 +514,7 @@
+ 	IT	Mag
+ 	NL	mei
+ 	NO	mai
+-	PL	Maj
++	PL	maj
+ 	RU	Май
+ 	SV	maj
+ 
+@@ -529,7 +529,7 @@
+ 	IT	Giu
+ 	NL	jun
+ 	NO	jun
+-	PL	Cze
++	PL	cze
+ 	RU	Июн
+ 	SV	jun
+ 
+@@ -544,7 +544,7 @@
+ 	IT	Lug
+ 	NL	jul
+ 	NO	jul
+-	PL	Lip
++	PL	lip
+ 	RU	Июл
+ 	SV	jul
+ 
+@@ -559,7 +559,7 @@
+ 	IT	Ago
+ 	NL	aug
+ 	NO	aug
+-	PL	Sie
++	PL	sie
+ 	RU	Авг
+ 	SV	aug
+ 
+@@ -574,7 +574,7 @@
+ 	IT	Set
+ 	NL	sep
+ 	NO	sep
+-	PL	Wrz
++	PL	wrz
+ 	RU	Сен
+ 	SV	sep
+ 
+@@ -589,7 +589,7 @@
+ 	IT	Ott
+ 	NL	okt
+ 	NO	okt
+-	PL	Paź
++	PL	paź
+ 	RU	Окт
+ 	SV	okt
+ 
+@@ -604,7 +604,7 @@
+ 	IT	Nov
+ 	NL	nov
+ 	NO	nov
+-	PL	Lis
++	PL	lis
+ 	RU	Ноя
+ 	SV	nov
+ 
+@@ -619,7 +619,7 @@
+ 	IT	Dic
+ 	NL	dec
+ 	NO	des
+-	PL	Gru
++	PL	gru
+ 	RU	Дек
+ 	SV	dec
+ 

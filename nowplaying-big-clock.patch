@@ -1,0 +1,171 @@
+--- share/jive/applets/NowPlaying/NowPlayingApplet.lua.old	2016-04-14 00:00:00.000000000 +0100
++++ share/jive/applets/NowPlaying/NowPlayingApplet.lua	2016-04-14 00:01:00.000000000 +0100
+@@ -1494,6 +1494,40 @@
+ 		end
+ 	)
+ 
++	local time
++	if datetime:getHours() == '12' then
++		time = datetime:getCurrentTime('%I:%M')
++	else
++		time = datetime:getCurrentTime()
++	end
++	self.clockShL = Label('npclock_sh_l', time); -- shadows
++	self.clockShT = Label('npclock_sh_t', time); -- shadows
++	self.clockShR = Label('npclock_sh_r', time); -- shadows
++	self.clockShB = Label('npclock_sh_b', time); -- shadows
++	self.clockShTl = Label('npclock_sh_tl', time); -- shadows
++	self.clockShBl = Label('npclock_sh_bl', time); -- shadows
++	self.clockShTr = Label('npclock_sh_tr', time); -- shadows
++	self.clockShBr = Label('npclock_sh_br', time); -- shadows
++	self.clock = Label('npclock', time);
++	self.clock:addTimer(1000,  -- every second
++		function()
++			local time
++			if datetime:getHours() == '12' then
++				time = datetime:getCurrentTime('%I:%M')
++			else
++				time = datetime:getCurrentTime()
++			end
++			self.clockShL:setValue(time)
++			self.clockShT:setValue(time)
++			self.clockShR:setValue(time)
++			self.clockShB:setValue(time)
++			self.clockShTl:setValue(time)
++			self.clockShBl:setValue(time)
++			self.clockShTr:setValue(time)
++			self.clockShBr:setValue(time)
++			self.clock:setValue(time)
++		end)
++
+ 	-- Visualizer: Spectrum Visualizer - only load if needed
+ 	if self.windowStyle == "nowplaying_spectrum_text" then
+ 		self.visuGroup = Button(
+@@ -1684,6 +1718,15 @@
+ 
+ 	window:addWidget(self.controlsGroup)
+ 	window:addWidget(self.progressGroup)
++	window:addWidget(self.clockShL) -- shadows
++	window:addWidget(self.clockShT) -- shadows
++	window:addWidget(self.clockShR) -- shadows
++	window:addWidget(self.clockShB) -- shadows
++	window:addWidget(self.clockShTl) -- shadows
++	window:addWidget(self.clockShBl) -- shadows
++	window:addWidget(self.clockShTr) -- shadows
++	window:addWidget(self.clockShBr) -- shadows
++	window:addWidget(self.clock)
+ 
+ 	-- FIXME: the suppressTitlebar skin param should not be necessary if the window's style for title is { hidden = 1 }, but this looks to be a bug in the underlying skin code
+ 	self.suppressTitlebar = self:getSelectedStyleParam('suppressTitlebar')
+--- share/jive/applets/QVGAlandscapeSkin/strings.txt.old	2016-04-14 00:00:00.000000000 +0100
++++ share/jive/applets/QVGAlandscapeSkin/strings.txt	2016-04-14 00:01:00.000000000 +0100
+@@ -48,3 +48,6 @@
+	RU	Большая обложка
+ 	SV	Stora albumomslag
+ 
++LARGE_ART_WITH_BIG_CLOCK
++	EN	Large Artwork with Big Clock
++	PL	Duża okładka + duży zegar
+\ No newline at end of file
+--- share/jive/applets/QVGAlandscapeSkin/QVGAlandscapeSkinApplet.lua.old	2016-04-14 00:00:00.000000000 +0100
++++ share/jive/applets/QVGAlandscapeSkin/QVGAlandscapeSkinApplet.lua	2016-04-14 00:01:00.000000000 +0100
+@@ -89,7 +89,12 @@
+ 				artworkSize = '143x143',
+ 				text = self:string('SMALL_ART'),
+ 			},
++			{
++				style = 'nowplaying_big_clock',
++				artworkSize = '320x320',
++				text = self:string('LARGE_ART_WITH_BIG_CLOCK'),
+-		},
++			},
++		},
+         }
+ end
+ 
+@@ -192,6 +197,14 @@
+ 
+ 	local NP_ARTISTALBUM_FONT_SIZE = 18
+ 	local NP_TRACK_FONT_SIZE = 21
++	local NP_CLOCK_FONT_SIZE = 90
++	local NP_CLOCK_COLOR = { 0xFF, 0xFF, 0xFF }
++	local NP_CLOCK_SH_COLOR = { }
++	-- local NP_CLOCK_BORDER_COLOR = { 0x37, 0x37, 0x37 }
++	local NP_CLOCK_BORDER_COLOR = { 0x00, 0x00, 0x00 }
++	local NP_CLOCK_BORDER_WIDTH = 2
++	local NP_CLOCK_POS_RIGHT = 10
++	local NP_CLOCK_POS_BOTTOM = 14
+ 
+ 	local controlHeight   = 38
+ 	local controlWidth    = 45
+@@ -303,7 +316,17 @@
+ 		npprogressNB = {
+ 			hidden = 1,
+ 		},
+-	
++
++		-- big clock
++		npclock = { hidden = 1 },
++		npclock_sh_tl = { hidden = 1 },
++		npclock_sh_bl = { hidden = 1 },
++		npclock_sh_tr = { hidden = 1 },
++		npclock_sh_br = { hidden = 1 },
++		npclock_sh_l = { hidden = 1 },
++		npclock_sh_t = { hidden = 1 },
++		npclock_sh_r = { hidden = 1 },
++		npclock_sh_b = { hidden = 1 },
+ 	})
+ 
+         s.nowplaying.npprogress.npprogressB_disabled = _uses(s.nowplaying.npprogress.npprogressB)
+@@ -321,8 +344,51 @@
+ 			},
+ 		},
+ 	})
++	s.nowplaying_big_clock = _uses(s.nowplaying, {
++		npclock = {
++			hidden = 0,
++			zOrder = 10,
++			w = WH_FILL,
++			-- 24: height of bottom iconbar
++			h = 24,
++			lineHeight = NP_CLOCK_FONT_SIZE,
++			position = LAYOUT_SOUTH,
++			-- bottom-right renders it above iconbar
++			align = "bottom-right",
++			font = _font(NP_CLOCK_FONT_SIZE),
++			fg = NP_CLOCK_COLOR,
++			padding = { 0, 0, NP_CLOCK_POS_RIGHT, NP_CLOCK_POS_BOTTOM},
++		}
++	})
++	s.nowplaying_big_clock.npclock_sh_tl = _uses(s.nowplaying_big_clock.npclock, {
++		fg = NP_CLOCK_BORDER_COLOR,
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT + NP_CLOCK_BORDER_WIDTH, NP_CLOCK_POS_BOTTOM + NP_CLOCK_BORDER_WIDTH},
++	})
++	s.nowplaying_big_clock.npclock_sh_bl = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT + NP_CLOCK_BORDER_WIDTH, NP_CLOCK_POS_BOTTOM - NP_CLOCK_BORDER_WIDTH},
++	})
++	s.nowplaying_big_clock.npclock_sh_tr = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT - NP_CLOCK_BORDER_WIDTH, NP_CLOCK_POS_BOTTOM + NP_CLOCK_BORDER_WIDTH},
++	})
++	s.nowplaying_big_clock.npclock_sh_l = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT + NP_CLOCK_BORDER_WIDTH, NP_CLOCK_POS_BOTTOM},
++	})
++	s.nowplaying_big_clock.npclock_sh_t = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT, NP_CLOCK_POS_BOTTOM + NP_CLOCK_BORDER_WIDTH},
++	})
++	s.nowplaying_big_clock.npclock_sh_r = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT - NP_CLOCK_BORDER_WIDTH, NP_CLOCK_POS_BOTTOM},
++	})
++	s.nowplaying_big_clock.npclock_sh_b = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT, NP_CLOCK_POS_BOTTOM - NP_CLOCK_BORDER_WIDTH},
++	})
++	s.nowplaying_big_clock.npclock_sh_br = _uses(s.nowplaying_big_clock.npclock_sh_tl, {
++		padding = { 0, 0, NP_CLOCK_POS_RIGHT - NP_CLOCK_BORDER_WIDTH, NP_CLOCK_POS_BOTTOM - NP_CLOCK_BORDER_WIDTH},
++		sh = NP_CLOCK_SH_COLOR,
++	})
+ 	s.nowplaying.pressed = s.nowplaying
+ 	s.nowplaying_small_art.pressed = s.nowplaying_small_art
++	s.nowplaying_big_clock.pressed = s.nowplaying_big_clock
+ 
+ 	-- line in window is the same as nowplaying but with transparent background
+ 	s.linein = _uses(s.nowplaying, {

@@ -9,21 +9,21 @@
 			<desc lang="EN">Power off the radio by pushing the power button only once, instead of twice, when screensaver is active.</desc>
 			<creator>Matt Hawk</creator>
 			<url>https://raw.githubusercontent.com/unhawkable/squeeze/master/poweroff-on-screensaver.patch</url>
-			<sha>a931399445b492861dabe69c61743b21971e9b57</sha>
+			<sha>32361eea4ce8893e1ec18302d88800921748e30d</sha>
 		</patch>
 		<patch name="NowPlayingBigClock" target="baby" version="1.0" minTarget="7.7" maxTarget="*">
 			<title lang="EN">Now Playing with Big Clock</title>
 			<desc lang="EN">Display big clock on the Now Playing screen. (turn the big knob rapidly to change the Now Playing screen's style)</desc>
 			<creator>Matt Hawk</creator>
 			<url>https://raw.githubusercontent.com/unhawkable/squeeze/master/nowplaying-big-clock.patch</url>
-			<sha>656edf59ee8bfd62f1e5a39db027453fc71cd692</sha>
+			<sha>43f61038a8cef0a1a7521b76fe2f9e55f9b23116</sha>
 		</patch>
 		<patch name="CustomClockPLFix" target="baby|fab4|jive|squeezeplay" version="1.0" minTarget="7.7" maxTarget="*">
 			<title lang="EN">Custom Clock PL Fixes</title>
 			<desc lang="EN">Polish translation fixes for Erland's Custom Clock Applet.</desc>
 			<creator>Matt Hawk</creator>
 			<url>https://raw.githubusercontent.com/unhawkable/squeeze/master/customclock-pl-fix.patch</url>
-			<sha>e70327a19aaf2c8a75bf3856dd0be4d4f136a1b1</sha>
+			<sha>9224cb804848b013df2fed614e5328a57869da83</sha>
 		</patch>
 	</patches>
 </extensions>
